@@ -1,0 +1,48 @@
+<div class="container mt-5 mb-5">
+    <div class="row">
+        <div class="col-lg-6 offset-lg-3">
+            <div class="card">
+                <div class="card-body">
+                    <h1 class="titulo">Editar Estudiante</h1>
+                    <br>
+                    <form [formGroup]="form" (ngSubmit)="guardarEstudiante()">
+                        <div class="input-group mb-3">
+                            <span class="input-group-text"><i class="fa-solid fa-user" [class.green-icon]="this.form.get('name')?.valid" [class.red-icon]="this.form.get('name')?.invalid && this.form.get('name')?.touched"></i></span>
+                            <input formControlName="name" type="text" class="form-control" placeholder="Nombre Completo">
+                        </div>
+                        <div class="row">
+                            <div class="input-group mb-3 col">
+                                <span class="input-group-text"><i class="fa-solid fa-envelope" [class.green-icon]="this.form.get('email')?.valid" [class.red-icon]="this.form.get('email')?.invalid && this.form.get('email')?.touched"></i></span>
+                                <input formControlName="email" type="text" class="form-control" placeholder="Correo Electrónico">
+                            </div>
+                            <div class="input-group mb-3 col">
+                                <span class="input-group-text"><i class="fa-solid fa-phone" [class.green-icon]="this.form.get('phone')?.valid" [class.red-icon]="this.form.get('phone')?.invalid && this.form.get('phone')?.touched"></i></span>
+                                <input formControlName="phone" type="text" class="form-control" placeholder="Teléfono">
+                            </div>
+                        </div>
+                        <div class="input-group mb-3 col">
+                            <span class="input-group-text"><i class="fa-solid fa-graduation-cap" [class.green-icon]="this.form.get('career')?.valid" [class.red-icon]="this.form.get('career')?.invalid && this.form.get('career')?.touched"></i></span>
+                            <select formControlName="career" class="form-select" id="autoSizingSelect">
+                                <option selected disabled="" value="">Seleccione la carrera...</option>
+                                <option [ngValue]="item.id" *ngFor="let item of carreras">{{item.name}}</option>
+                            </select>
+                        </div>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text"><i class="fa-solid fa-cake-candles" [class.green-icon]="this.form.get('birthdate')?.valid" [class.red-icon]="this.form.get('birthdate')?.invalid && this.form.get('birthdate')?.touched"></i></span>
+                            <input formControlName="birthdate" type="date" class="form-control" placeholder="Fecha de Nacimiento">
+                        </div>
+                        <div class="row">
+                            <div class="d-grid  col-4 mx-auto">
+                                <button [disabled]="this.form.invalid" class="btn btn-success" type="submit">Actualizar Estudiante</button>
+                            </div>
+                            <div class="d-grid gap-2 col-4 mx-auto">
+                                <button class="btn btn-danger" type="button" routerLink="/estudiantes">Cancelar</button>
+                            </div>
+                        </div>
+                        
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
