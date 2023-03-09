@@ -1,0 +1,36 @@
+<div class="container mt-5 mb-5">
+    <div class="row">
+        <div class="col-lg-6 offset-lg-3">
+            <div class="card">
+                <div class="card-body">
+                    <h1 class="titulo">Editar Carrera</h1>
+                    <br>
+                    <form [formGroup]="form" (ngSubmit)="guardarCarrera()">
+                        <div class="row">
+                            <div class="col-lg-3">
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text"><i class="fa-solid fa-hashtag" [class.green-icon]="this.form.get('code')?.valid" [class.red-icon]="this.form.get('code')?.invalid && this.form.get('code')?.touched"></i></span>
+                                    <input formControlName="code" type="text" maxlength="2" minlength="2" class="form-control" placeholder="Código">
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text"><i class="fa-solid fa-user" [class.green-icon]="this.form.get('name')?.valid" [class.red-icon]="this.form.get('name')?.invalid && this.form.get('name')?.touched"></i></span>
+                                    <input formControlName="name" type="text" class="form-control" placeholder="Nombre">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="d-grid  col-4 mx-auto">
+                                <button [disabled]="this.form.invalid" class="btn btn-success" type="submit">Agregar Carrera</button>
+                            </div>
+                            <div class="d-grid gap-2 col-4 mx-auto">
+                                <button class="btn btn-danger" type="button" routerLink="/carreras">Cancelar</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

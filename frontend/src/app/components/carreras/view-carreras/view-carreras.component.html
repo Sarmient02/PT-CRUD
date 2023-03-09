@@ -1,0 +1,38 @@
+
+<div class="container mt-5 mb-5">
+    <div class="row">
+        <div class="col-lg-8 offset-lg-2">
+            <div class="card">
+                <div class="card-body">
+                    <h1 class="titulo">Carreras</h1>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                              <th scope="col">#</th>
+                              <th scope="col">Nombre</th>
+                              <th scope="col">Código</th>
+                              <th scope="col" style="text-align:center">Opciones</th>
+                            </tr>
+                          </thead>
+                        <tbody>
+                            <tr *ngFor="let carrera of carreras">
+                                <td>{{carrera.id}}</td>
+                                <td>{{carrera.name}}</td>
+                                <td>{{carrera.code}}</td>
+                                <td>
+                                    <div class="row">
+                                        <div class="col-lg-8 text-center"><i routerLink="/carreras/edit/{{carrera.id}}" class="fa-regular fa-pen-to-square text-info"></i></div>
+                                        <div class="col-lg-1"><i (click)="eliminarCarrera(carrera.id)" class="fa-solid fa-trash text-danger"></i></div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="d-grid gap-2 col-4 mx-auto">
+                        <button class="btn btn-success" type="button" routerLink="/carreras/add">Agregar Carrera &nbsp;&nbsp;<i class="fa-solid fa-database"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
